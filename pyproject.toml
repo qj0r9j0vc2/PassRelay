@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "passrelay"
+dynamic = ["version"]
+description = "Two-way sync between Apple Passwords and the pass password store on macOS"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+dependencies = []
+classifiers = [
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Topic :: Security",
+]
+
+[project.scripts]
+passrelay = "passrelay.cli:main"
+
+[tool.setuptools]
+packages = ["passrelay", "passrelay.apple"]
+
+[tool.setuptools.dynamic]
+version = { attr = "passrelay.__version__" }
+
+[tool.ruff]
+line-length = 120
